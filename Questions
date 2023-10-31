@@ -1,0 +1,14 @@
+1. What are the different types of widgets in Flutter?
+
+In Flutter, widgets are the building blocks for creating UI elements. There are two types of widgets in Flutter:
+
+- Stateless widgets: These widgets are immutable, meaning they cannot be changed once they are created. Stateless widgets are used when the UI elements do not need to be redrawn or updated frequently, such as a static text label or an icon. Stateless widgets are defined using the StatelessWidget class.
+- Stateful widgets: These widgets are mutable and can be updated dynamically based on user interactions or other events. Stateful widgets are used when the UI elements need to be updated frequently, such as a list or form. Stateful widgets are defined using the StatefulWidget class. Note that stateful widgets require a State object to handle the mutable state, which is managed by the framework.
+
+
+2. What is the difference between StatelessWidget and StatefulWidget in Flutter?
+
+In Flutter, StatelessWidget and StatefulWidget are two different types of widgets that are used to create UI elements.
+
+StatelessWidget is a widget that does not have any mutable state. Once it is built, its properties cannot be changed. Examples of StatelessWidget include Text, Icons, and Images.
+StatefulWidget is a widget that has a mutable state. It can change its properties based on user interactions. Examples of StatefulWidget include TextField, Checkbox, and Slider.
