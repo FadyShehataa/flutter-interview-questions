@@ -6,9 +6,21 @@ In Flutter, widgets are the building blocks for creating UI elements. There are 
 - Stateful widgets: These widgets are mutable and can be updated dynamically based on user interactions or other events. Stateful widgets are used when the UI elements need to be updated frequently, such as a list or form. Stateful widgets are defined using the StatefulWidget class. Note that stateful widgets require a State object to handle the mutable state, which is managed by the framework.
 
 
+
 2. What is the difference between StatelessWidget and StatefulWidget in Flutter?
 
 In Flutter, StatelessWidget and StatefulWidget are two different types of widgets that are used to create UI elements.
 
 StatelessWidget is a widget that does not have any mutable state. Once it is built, its properties cannot be changed. Examples of StatelessWidget include Text, Icons, and Images.
 StatefulWidget is a widget that has a mutable state. It can change its properties based on user interactions. Examples of StatefulWidget include TextField, Checkbox, and Slider.
+
+
+3. What is StatefulWidget LifeCycle?
+
+- createState(): This method creates the state object for the widget. When we create a stateful widget, our framework calls a createState() method and it must be overridden.
+- initState(): This method is called after the state object is created. It is used to initialise the state of the widget. This is our equivalent to onCreate() and viewDidLoad()
+- didChangeDependencies(): This method is called immediately after initState and when dependency of the State object changes via InheritedWidget.
+- build(): This is called right after didChangeDependencies(). All the GUI is rendered here and will be called every single time the UI needs to be rendered. It is used to build the widget tree. This gets called each time the widget is rebuilt this can happen after initState, didChangeDependencies, didUpdateWidget, or when the state is changed via a call to setState.
+- didUpdateWidget(): This method is called when the widget is updated with new properties. A typical case is when a parent passes some variable to the children() widget via the constructor. It’ll be called once the parent Widget did a change and needs to redraw the UI.
+- deactivate(): Framework calls This method when State is removed from subtree A and reinserted to subtree B with the use of a GlobalKey.
+- dispose(): This method is called when this object and its State are removed from the tree permanently and will never build again. It is used to release any resources used by the widget like closing network connections or stopping animations.
